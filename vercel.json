@@ -8,36 +8,19 @@
   ],
   "routes":[
     {
-      "src": "/api/shops/.*",
-      "dest": "./routes/shops.js"
-    },
-    {
-      "src": "/api/medicines/.*",
-      "dest": "./routes/medicines.js"
-    },
-    {
-      "src": "/api/medicines/public",
-      "dest": "./routes/medicines.js"
-    },
-    {
-      "src": "/api/shops/public",
-      "dest": "./routes/shops.js"
-    },
-    {
-      "src": "/api/user/login",
-      "dest": "./routes/user.js"
-    },
-    {
-      "src": "/api/user/signup",
-      "dest": "./routes/user.js"
-    },
-    {
-      "src": "/api/shops/:id",
-      "dest": "./routes/shops.js"
-    },
-    {
-      "src": "/api/medicines/:id",
-      "dest": "./routes/medicines.js"
+      "src": "/(.*)",
+      "dest": "/server.js"
     }
-  ]
+  ],
+  "headers": [
+      {
+        "source": "/(.*)",
+        "headers": [
+          { "key": "Access-Control-Allow-Credentials", "value": "true" },
+          { "key": "Access-Control-Allow-Origin", "value": "*" },
+          { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+          { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" }
+        ]
+      }
+    ]
 }
