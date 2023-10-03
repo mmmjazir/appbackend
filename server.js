@@ -15,7 +15,7 @@ const app = express();
 
 // middleware
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://vitalinc.vercel.app/',
   }));
 
 app.use(express.json())
