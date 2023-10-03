@@ -15,7 +15,7 @@ const app = express();
 
 // middleware
 app.use(cors({
-    origin: 'https://vitalinc.vercel.app/',
+    origin: 'https://vitalinc.vercel.app',
   }));
 
 app.use(express.json())
