@@ -1,5 +1,5 @@
 const express = require('express')
-const {getShops,getShop,createShop,deleteShop,updateShop,getAllShops} = require('../controllers/shopController')
+const {getShops,getShop,createShop,deleteShop,updateShop} = require('../controllers/shopController')
 const requireAuth = require('../middleware/requireAuth')
 
 const router = express.Router()
@@ -7,8 +7,7 @@ const router = express.Router()
 // require auth for all workout routes
 router.use(requireAuth)
 
-// GET all shops for public
-router.get('/public',getAllShops)
+
 
 // GET all shops
 router.get('/',getShops)

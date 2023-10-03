@@ -5,6 +5,8 @@ const mongoose = require('mongoose')
 const userRoutes = require('./routes/user')
 const shopRoutes =require('./routes/shops')
 const medicineRoutes =  require('./routes/medicines')
+const publicMedicinesRoutes = require('./routes/publicmedicines')
+const publicShopsRoutes = require('./routes/publicshops')
 
 const cors = require('cors');
 
@@ -13,7 +15,7 @@ const app = express();
 
 // middleware
 app.use(cors({
-    origin: 'https://vitalinc.vercel.app/',
+    origin: 'http://localhost:3000',
   }));
 
 app.use(express.json())
@@ -26,7 +28,8 @@ app.use((req,res,next)=>{
 app.use('/api/shops', shopRoutes)
 app.use('/api/user', userRoutes)
 app.use('/api/medicines', medicineRoutes)
-
+app.use('/api/publicmedicines', publicMedicinesRoutes)
+app.use('/api/publicshops', publicShopsRoutes)
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
